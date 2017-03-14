@@ -8,5 +8,5 @@ layout: default
 
 ## 0x3 Docker+Kubernetes
 
-* [2017-03-14-搭建kubernetes集群](_posts/2017-03-14-kubernets_setup)
+* [2017-03-14-搭建kubernetes集群](2017-03-14-kubernets_setup)
 
