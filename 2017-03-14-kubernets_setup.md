@@ -7,7 +7,7 @@ centos 7
 
 在master上执行脚本，其中watch的地方，等待pod状态全部变为running后切出。记住`kubeadm init`操作生成的token。我们这里使用weave网络，当然你也可以使用calico、Romana。
 
-```sh
+```shell
 #!/bin/bash
 yum update -y
 yum install -y socat     
@@ -44,7 +44,7 @@ watch -n 5 kubectl get pod --namespace=kube-system
 
 在minion上执行脚本
 
-```sh
+```shell
 #!/bin/bash
 yum update -y
 yum install -y tmux socat
@@ -65,5 +65,5 @@ setenforce 0
 systemctl stop firewalld && systemctl disable firewalld
 systemctl enable docker && systemctl start docker && systemctl status docker
 systemctl enable kubelet && systemctl start kubelet && systemctl status kubelet
-kubeadm join --token=${your token here} ${your k8s master ip}
+kubeadm join --token=${your token here} ${your k8s master ip} --skip-preflight-checks
 ```
