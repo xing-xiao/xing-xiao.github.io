@@ -10,3 +10,4 @@ layout: default
 
 * [2017-03-14-搭建kubernetes集群](2017-03-14-kubernets_setup)
 
+* [2017-03-14-管理kubernetes资源](2017-03-14-managing_kubernets_resources)
