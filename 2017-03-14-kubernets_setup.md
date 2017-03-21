@@ -67,3 +67,11 @@ systemctl enable docker && systemctl start docker && systemctl status docker
 systemctl enable kubelet && systemctl start kubelet && systemctl status kubelet
 kubeadm join --token=${your token here} ${your k8s master ip} --skip-preflight-checks
 ```
+
+节点接入后，在slave上使用如下命令查看节点接入状态。
+
+`kubectl --kubeconfig /etc/kubernetes/kubelet.conf get nodes`
+
+如果忘记了自己的token，可以在master主机上运行如下命令获取token
+
+`kubectl -n kube-system get secret clusterinfo -o yaml | grep token-map | awk '{print $2}' | base64 -d | sed "s|{||g;s|}||g;s|:|.|g;s/\"//g;" | xargs echo`
