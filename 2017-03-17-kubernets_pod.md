@@ -78,6 +78,7 @@ hostPath:path: /	挂载一个node上的路径到你的pod，但是宿主机创�
 运行起来试试看
 
 `kubectl get pods -l purpose=demonstrate-envars`
+
 `kubectl exec -it envar-demo -- printenv`
 
 ## 运行多个container
