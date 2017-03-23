@@ -99,3 +99,34 @@ my-nginx-svc   10.0.0.208                 80/TCP       0s
 - edit the file
 - `kubectl apply -f /tmp/nginx.yaml`
 
+### kubectl rolling-update
+
+`rolling-update`可以对于多个副本的pod、rc、depolyment进行逐个升级，以避免因升级而导致的服务暂停。用法可以参考官方给出的例子，如下：
+
+```
+  # Update pods of frontend-v1 using new replication controller data in frontend-v2.json.
+  kubectl rolling-update frontend-v1 -f frontend-v2.json
+  
+  # Update pods of frontend-v1 using JSON data passed into stdin.
+  cat frontend-v2.json | kubectl rolling-update frontend-v1 -f -
+  
+  # Update the pods of frontend-v1 to frontend-v2 by just changing the image, and switching the
+  # name of the replication controller.
+  kubectl rolling-update frontend-v1 frontend-v2 --image=image:v2
+  
+  # Update the pods of frontend by just changing the image, and keeping the old name.
+  kubectl rolling-update frontend --image=image:v2
+  
+  # Abort and reverse an existing rollout in progress (from frontend-v1 to frontend-v2).
+  kubectl rolling-update frontend-v1 frontend-v2 --rollback
+```
+
+对于deployment，rolling-update需要在deployment的yaml/json文件中spec段设置：
+
+```
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+```
