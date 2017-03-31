@@ -4,6 +4,8 @@ layout: default
 
 ## 0x1 机器学习
 
+* [2017-03-30-sklearn数据特征抽取](2017-03-30-sklearn_feature_extraction)
+
 ## 0x2 漏洞分析
 
 ## 0x3 Docker+Kubernetes
