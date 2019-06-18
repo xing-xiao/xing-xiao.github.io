@@ -4,7 +4,7 @@ layout: default
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./docs/test.html).
+[Link to another page](./docs/all-about-dns-tunneling.html).
 
 There should be whitespace between paragraphs.
 
