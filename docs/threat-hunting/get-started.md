@@ -12,7 +12,9 @@ SANS中多篇文章都给出了Threat Hunting的定义，包括：
 
 ～Threat hunting is the proactive approach of searching and finding threats within an organization’s network that may go undetected for a long time due to weaknesses in traditional reactive detection systems and techniques.～<sup>[[5](https://www.sans.org/white-papers/39610/)]</sup>
 
+和
 
+～Threat hunting uses new information on previously collected data to find signs of compromise evading detection.～<sup>[[6](https://www.sans.org/white-papers/39025/)]</sup>
 
 1. Search the network for signs of compromise
 2. Active/Proactive, not reactive
