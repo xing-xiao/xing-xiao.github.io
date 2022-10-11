@@ -8,7 +8,7 @@
 
 ### 什么是Threat Hunting
 
-SANS中多篇文章都给出了Threat Hunting的定义，如^5^如是
+SANS中多篇文章都给出了Threat Hunting的定义，如<sup>[5]</sup>所示，
 
 定义： it is the proactive approach of searching and finding threats within an organization’s network that may go undetected for a long time due to weaknesses in traditional reactive detection systems and techniques.[Applying the Scientific Method to Threat Hunting](https://www.sans.org/white-papers/39610/)
 
