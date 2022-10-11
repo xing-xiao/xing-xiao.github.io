@@ -1,19 +1,14 @@
-# Threat Hunting
+# 一文读懂威胁狩猎(Threat Hunting)
 
-https://www.threathunting.net/
+## 前言
 
-## Introduction
+在进入正文之前，我们先来介绍一下为什么写这篇文章
 
-### TH在SOC中的位置
+## Threat Hunting简介
 
-传统SOC：SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
-consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
+### 什么是Threat Hunting
 
-Incident Response 生命周期：[NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
-
-[NIST IPDRR Framework](https://www.nist.gov/cyberframework)
-
-### TH的定义
+SANS中多篇文章都给出了Threat Hunting的定义，如^5^如是
 
 定义： it is the proactive approach of searching and finding threats within an organization’s network that may go undetected for a long time due to weaknesses in traditional reactive detection systems and techniques.[Applying the Scientific Method to Threat Hunting](https://www.sans.org/white-papers/39610/)
 
@@ -24,7 +19,21 @@ Incident Response 生命周期：[NIST.SP.800-61r2](https://nvlpubs.nist.gov/nis
 
 [Threat Hunting Tutorial: Introduction](https://www.youtube.com/watch?v=qrZsc5IkchI)
 
+1. The primary focus of threat hunting is detecting attacks missed by other security controls
+2. allows us to address higher levels of the Pyramid of Pain,1 making the adversary’s life a lot harder
+
 是什么(What) -> 为什要做(Why) -> 从哪里开始(Where) -> 如何去做(How) -> 什么角色做(Who) -> 产出(Output)
+
+### TH在SOC中的位置
+
+传统SOC：SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
+consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
+
+Incident Response 生命周期：[NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+
+[NIST IPDRR Framework](https://www.nist.gov/cyberframework)
+
+
 
 ### TH为什么重要或者必须的
 
@@ -107,7 +116,16 @@ TH 和 IR关系
 TH 由 TI驱动
 TH 和安全巡检，覆盖面不同，目的不同
 
+
+实验环境
+
+- https://github.com/clong/DetectionLab
+
 ## Reference
 
-- [SANS 2022 Threat Hunting Survey - Hunting for a Standard Methodology for Threat Hunting Teams](https://www.youtube.com/watch?v=n29whvCuwhc)
-- https://twitter.com/ThreatHuntProj
+- [1. SANS 2022 Threat Hunting Survey - Hunting for a Standard Methodology for Threat Hunting Teams](https://www.youtube.com/watch?v=n29whvCuwhc)
+- [2. Twitter ThreatHuntProj](https://twitter.com/ThreatHuntProj)
+- [3. https://www.threathunting.net/](https://www.threathunting.net/)
+- [4. https://resources.infosecinstitute.com/topics/threat-hunting/](https://resources.infosecinstitute.com/topics/threat-hunting/)
+- [5. Applying the Scientific Method to Threat Hunting - Jeremy Kerwin - SANS](https://www.sans.org/white-papers/39610/)
+- 
