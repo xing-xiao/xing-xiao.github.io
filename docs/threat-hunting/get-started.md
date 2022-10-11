@@ -8,9 +8,11 @@
 
 ### 什么是Threat Hunting
 
-SANS中多篇文章都给出了Threat Hunting的定义，如<sup>[5]</sup>所示，
+SANS中多篇文章都给出了Threat Hunting的定义，包括：
 
-定义： it is the proactive approach of searching and finding threats within an organization’s network that may go undetected for a long time due to weaknesses in traditional reactive detection systems and techniques.[Applying the Scientific Method to Threat Hunting](https://www.sans.org/white-papers/39610/)
+～Threat hunting is the proactive approach of searching and finding threats within an organization’s network that may go undetected for a long time due to weaknesses in traditional reactive detection systems and techniques.～<sup>[[5](https://www.sans.org/white-papers/39610/)]</sup>
+
+
 
 1. Search the network for signs of compromise
 2. Active/Proactive, not reactive
@@ -123,9 +125,9 @@ TH 和安全巡检，覆盖面不同，目的不同
 
 ## Reference
 
-- [1. SANS 2022 Threat Hunting Survey - Hunting for a Standard Methodology for Threat Hunting Teams](https://www.youtube.com/watch?v=n29whvCuwhc)
-- [2. Twitter ThreatHuntProj](https://twitter.com/ThreatHuntProj)
-- [3. https://www.threathunting.net/](https://www.threathunting.net/)
-- [4. https://resources.infosecinstitute.com/topics/threat-hunting/](https://resources.infosecinstitute.com/topics/threat-hunting/)
-- [5. Applying the Scientific Method to Threat Hunting - Jeremy Kerwin - SANS](https://www.sans.org/white-papers/39610/)
-- 
+1. [SANS 2022 Threat Hunting Survey - Hunting for a Standard Methodology for Threat Hunting Teams](https://www.youtube.com/watch?v=n29whvCuwhc)
+2. [Twitter ThreatHuntProj](https://twitter.com/ThreatHuntProj)
+3. [https://www.threathunting.net/](https://www.threathunting.net/)
+4. [https://resources.infosecinstitute.com/topics/threat-hunting/](https://resources.infosecinstitute.com/topics/threat-hunting/)
+5. [Applying the Scientific Method to Threat Hunting - Jeremy Kerwin (thalesgroup.com.au) - SANS 2020](https://www.sans.org/white-papers/39610/)
+6. [Building and Maturing Your Threat Hunting Program - David Szili (CTO @ Alzette Information Security) - SANS 2019](https://www.sans.org/white-papers/39025/)
