@@ -2,15 +2,13 @@
 
 ## 前言
 
-在进入正文之前，我们先来介绍
+很早就想针对威胁狩猎(Threat Hunting)来写一篇详细文章介绍体系，作为安全运营活动中非常重要的一环，国外已经由很多文章和体系的介绍，8月份的BlactHat USA专题演讲OTHF，但是国内介绍的很少。
 
 ## Threat Hunting简介
 
 ### 什么是Threat Hunting
 
-首先，我们需要先明确什么是Threat Hunting， 在给出我自己的答案之前，
-
-我们先来看看行业内其他机构是如何理解Threat Hunting，如在SANS中有多篇文章给出了定义：
+首先，我们需要先明确什么是Threat Hunting， 在给出我自己的答案之前，我们先来看看行业内其他机构是如何理解Threat Hunting，如在SANS中有多篇文章给出了Threat Hunting的定义：
 
 *Threat hunting is the proactive approach of searching and finding threats within an organization’s network that may go undetected for a long time due to weaknesses in traditional reactive detection systems and techniques.* [[5](https://www.sans.org/white-papers/39610/)]
 
@@ -19,11 +17,13 @@
 *Threat hunting uses new information on previously collected data to find signs of compromise evading detection.* [[6](https://www.sans.org/white-papers/39025/)]
 
 
-这些定义的前提都建立在威胁检测(Detect)无法完全发现所有的恶意入侵，造成这样的原因包括：检测技术存在缺陷、不断出现的新型攻击手法、检测的覆盖面不足等等原因。而Threat Hunting座位一种主动的周期性活动，用于发现威胁检测中未发现的威胁，IPDRR安全框架中用于弥补识别(IDENTIFY)、保护(PROTECT)和检测(DETECT)的不足。我们将会在下一小节**Threat Hunting在安全防御框架中的作用**中详细介绍威胁狩猎的作用，以及在安全防御框架中它与其他安全活动之间的关系。
+这些定义的前提都建立在威胁检测(Detect)无法完全发现所有的恶意入侵，造成这样的可能原因包括：检测技术存在缺陷、不断出现的新型攻击手法、检测的覆盖面不足等等。而Threat Hunting作为一种主动的周期性活动，可以用于发现威胁检测过程中因为上述原因而未被发现的威胁。在NIST的IPDRR安全框架中，Threat Hunting是用于弥补识别(IDENTIFY)、保护(PROTECT)和检测(DETECT)的不足，这一点我们会在下一小节**Threat Hunting在安全防御框架中的位置**中详细的展开介绍，并系统讲解安全防御框架中Threat Huting与其他安全活动之间的关系。
 
-Chris Brenton的文章[what is threat hunting and why is it so important [7]](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)中也讲了对Threat Hunting的观点，主要内容包括：Threat Hunting是一个active/proactive活动，对象是所在组织的任何相关环境(原文中用词是everything)，内容是发现任何失陷的信号(signs of being compromised),而输出是是否失陷的评估。
+Active Countermeasures的COO、SANS的讲师Chris Brenton在Youtube上发表了一系列的教程[视频[14]](https://www.youtube.com/watch?v=lt1ld62Fids)来讲述Threat Hunting活动(ps. 视频一开始的妹子Shelby带上粉色猫耳朵耳麦很萌，比他在AC官网的照片要好看的多)。Chris Brenton在2020年的文章[what is threat hunting and why is it so important [7]](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)中简要讲了对Threat Hunting的理解以及重要性，观点主要包括：Threat Hunting是一个active/proactive活动，对象是所在组织的任何相关环境(原文中用词是everything)，内容是发现任何失陷的信号(signs of being compromised),而输出是是否失陷的评估。
 
-在最新的BlackHat USA(2022年8月)会议中，来自IBM X-Force的专家John Dwyer和Neil Wyler分享了议题[Open Threat Hunting Framework [8]](https://www.blackhat.com/us-22/briefings/schedule/#the-open-threat-hunting-framework-enabling-organizations-to-build-operationalize-and-scale-threat-hunting-26702)，体系化的阐述了Threat Hunting的体系框架。这篇文章在2.3小节中则建议由开展Threat Hunting活动的组织在内部自己定义Threat Hunting以及相关活动，而定义的内容应该包括：1.hunting不针对已经能检出的威胁；2.是应该专项的、周期性开展的活动；3.活动是建立在“假设”的基础上。在这个文章中也给出了多家安全厂商对Theat hunting的定义，包括：
+在最近的BlackHat USA(2022年8月)会议中，来自IBM X-Force的专家John Dwyer和Neil Wyler分享了议题[Open Threat Hunting Framework (OTHF)[8]](https://www.blackhat.com/us-22/briefings/schedule/#the-open-threat-hunting-framework-enabling-organizations-to-build-operationalize-and-scale-threat-hunting-26702)，体系化的阐述了Threat Hunting活动框架。这篇文章在2.3小节中则是建议由开展Threat Hunting活动的组织在内部自己定义Threat Hunting以及相关活动，而定义的内容应该包括：1.hunting不针对已经能检出的威胁；2.是应该专项的、周期性开展的活动；3.活动是建立在“假设”的基础上。
+
+在OTHF文章中也给出了多家安全厂商对Theat hunting的定义，内容大同小异，包括：
 
 - hreat Hunting is a dedicated, continuous, hypothesis-based search methodology to reduce the time to detect adversaries operating within an environment that have yet to be detected.
 - Threat hunting is the practice of proactively searching for cyber threats that are lurking undetected in a network. - CrowdStrike[9]
@@ -38,14 +38,18 @@ Chris Brenton的文章[what is threat hunting and why is it so important [7]](ht
 4. 活动应该由明确的产出，包括且明确的是否失陷的结论、失陷发现的分析手段(以规则、代码等形式展现)、对已有防御体系中不足的改进建议、缺失的检测数据、总结的新增检测规则等。
 5. 目标是解决信息安全防御体系的痛苦金字塔(Pyramid of Pain)中顶端的痛点[13]，提高攻击者入侵的门槛。
 
-### TH在SOC中的位置
+### Threat Hunting在安全防御框架中的位置
+
+Threat Hunting是安全防御框架和安全运营活动中重要的一环，在下一小节**为什么Threat Hunting是重要而且必须**之前，我们先简单介绍安全运营活动的框架，以及Threat Hunting在整个安全运营活动中的位置和作用，这样能够更好的帮助我们理解为何和如何开展Threat Hunting。同时我也在计划单独写一盘详细的文章来介绍安全运营(SOC)，请关注我的博客或者公众号。
+
+在这里，我们以[NIST的安全框架IPDRR[16]](https://www.nist.gov/cyberframework)为例，
 
 传统SOC：SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
 consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
 
 Incident Response 生命周期：[NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-[NIST IPDRR Framework](https://www.nist.gov/cyberframework)
+![Daily defenses versus hunt](image/daily-defenses-versus-hunts.png)
 
 
 
@@ -81,7 +85,7 @@ Types of threat hunts - TH Category quad chart
 Intelligence驱动
 TTP驱动
 Anomaly驱动
-https://www.youtube.com/watch?v=UEwplUM5GlU  6:20
+[Stay ahead of the game: automate your threat hunting workflows](https://www.youtube.com/watch?v=UEwplUM5GlU)  6:20
 
 
 Scopes of threat hunts
@@ -150,4 +154,6 @@ TH 和安全巡检，覆盖面不同，目的不同
 11. [https://www.checkpoint.com/cyber-hub/cloud-security/what-is-threat-hunting/](https://www.checkpoint.com/cyber-hub/cloud-security/what-is-threat-hunting/)
 12. [Threat Hunting Tutorial: Introduction](https://www.youtube.com/watch?v=qrZsc5IkchI)
 13. [A Framework for Cyber Threat Hunting Part 1: The Pyramid of Pain - Sqrrl Team](https://www.threathunting.net/files/A%20Framework%20for%20Cyber%20Threat%20Hunting%20Part%201_%20The%20Pyramid%20of%20Pain%20_%20Sqrrl.pdf)
-14. 
+14. [Cyber Threat Hunting Level 1](https://www.youtube.com/watch?v=lt1ld62Fids)
+15. [Active Countermeasures Youtube 频道](https://www.youtube.com/c/ActiveCountermeasures)
+16. [NIST网络安全框架](https://www.nist.gov/cyberframework)
