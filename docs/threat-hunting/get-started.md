@@ -40,9 +40,15 @@ Active Countermeasures的COO、SANS的讲师Chris Brenton在Youtube上发表了�
 
 ### Threat Hunting在安全防御框架中的位置
 
-Threat Hunting是安全防御框架和安全运营活动中重要的一环，在下一小节**为什么Threat Hunting是重要而且必须**之前，我们先简单介绍安全运营活动的框架，以及Threat Hunting在整个安全运营活动中的位置和作用，这样能够更好的帮助我们理解为何和如何开展Threat Hunting。同时我也在计划单独写一盘详细的文章来介绍安全运营(SOC)，请关注我的博客或者公众号。
+Threat Hunting是安全防御框架和安全运营活动中重要的一环，在本章节我们来简单的介绍安全运营活动的框架，以及Threat Hunting在整个安全运营活动中的位置和作用，这样能够更好的帮助我们理解为何和如何开展Threat Hunting。同时我也在计划针对安全运营(SOC)单独写一盘详细的文章，请关注我的博客或者公众号。
 
-在这里，我们以[NIST的安全框架IPDRR[16]](https://www.nist.gov/cyberframework)为例，
+在[The Foundations of Threat Hunting [17]](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)这本书中，把Threat Hunting归纳到了Incident Response Lifecycle中的Detection和Analysis阶段，如下图所示
+
+![Incident Response 生命周期](image/incident-response-lifecycle.png)
+
+
+
+在这里，我们以[NIST的安全框架IPDRR[16]](https://www.nist.gov/cyberframework)为例，安全活动是
 
 传统SOC：SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
 consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
@@ -157,3 +163,4 @@ TH 和安全巡检，覆盖面不同，目的不同
 14. [Cyber Threat Hunting Level 1](https://www.youtube.com/watch?v=lt1ld62Fids)
 15. [Active Countermeasures Youtube 频道](https://www.youtube.com/c/ActiveCountermeasures)
 16. [NIST网络安全框架](https://www.nist.gov/cyberframework)
+17. [The Foundations of Threat Hunting](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)
