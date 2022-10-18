@@ -42,18 +42,22 @@ Active Countermeasures的COO、SANS的讲师Chris Brenton在Youtube上发表了�
 
 Threat Hunting是安全防御框架和安全运营活动中重要的一环，在本章节我们来简单的介绍安全运营活动的框架，以及Threat Hunting在整个安全运营活动中的位置和作用，这样能够更好的帮助我们理解为何和如何开展Threat Hunting。同时我也在计划针对安全运营(SOC)单独写一盘详细的文章，请关注我的博客或者公众号。
 
-在[The Foundations of Threat Hunting [17]](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)这本书中，把Threat Hunting归纳到了Incident Response Lifecycle中的Detection和Analysis阶段，如下图所示
+NIST 信息安全事件处置指南[NIST.SP.800-61r2 [18]](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)中，将事件响应(Incident Response)的生命周期分为`准备`、`检测和分析`、`阻止、消除和恢复`、`后事件处置活动`四个阶段。在[The Foundations of Threat Hunting [17]](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)这本书中，列举了IR生命周期每个阶段中会包含的安全运营活动列表，其中Threat Hunting归纳到了事件响应生命周期的`检测和分析`阶段，他将Threat Huting作为威胁检出的一项手段，也就是做为使用规则进行威胁发现和告警聚合的一种补充，主要目标还是尽可能的增加威胁的检出率，如下图所示。
 
 ![Incident Response 生命周期](image/incident-response-lifecycle.png)
 
+而在[NIST的安全框架IPDRR[16]](https://www.nist.gov/cyberframework)中，将将安全活动分为`Identify`、`Protect`、`Detect`、`Respond`、`Recover`的闭环活动，覆盖了针对企业资产的完整信息安全保护的周期，简称IPDRR框架
 
+![NIST Cyber security Framwork v1.1](image/framework_functions_wheel.png)
 
-在这里，我们以[NIST的安全框架IPDRR[16]](https://www.nist.gov/cyberframework)为例，安全活动是
+IPDRR每一个阶段的细分项目内容如下：
+
+![NIST IPDRR Category Unique Identifier](image/IPDRR-Category.png)
+
+其中`DE.CM`阶段表示`Security Continuous Monitoring: The information system and assets are monitored to identify cybersecurity events and verfy the effectiveness of protective measures`，他在`DE.DP`之前，`DE.DP`阶段主要内容包括`Detection processes and procedures are maintained and tested to ensure awareness of anomalous events`。而Threat Hunting涉及了DE.CM-1、DE.CM-2、DE.CM-3、DE.CM-6、DE.CM-7，用于发现环境和组织中潜在的恶意威胁，同时Threat Hunting的结果也会反馈DE.DP-5 `Detection processes are continuously improved`。
 
 传统SOC：SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
 consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
-
-Incident Response 生命周期：[NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 ![Daily defenses versus hunt](image/daily-defenses-versus-hunts.png)
 
@@ -164,3 +168,4 @@ TH 和安全巡检，覆盖面不同，目的不同
 15. [Active Countermeasures Youtube 频道](https://www.youtube.com/c/ActiveCountermeasures)
 16. [NIST网络安全框架](https://www.nist.gov/cyberframework)
 17. [The Foundations of Threat Hunting](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)
+18. [NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
