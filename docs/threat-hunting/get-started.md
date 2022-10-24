@@ -56,7 +56,17 @@ IPDRR每一个阶段的细分项目内容如下：
 
 其中`DE.CM`阶段表示`Security Continuous Monitoring: The information system and assets are monitored to identify cybersecurity events and verfy the effectiveness of protective measures`，他在`DE.DP`之前，`DE.DP`阶段主要内容包括`Detection processes and procedures are maintained and tested to ensure awareness of anomalous events`。而Threat Hunting涉及了DE.CM-1、DE.CM-2、DE.CM-3、DE.CM-6、DE.CM-7，用于发现环境和组织中潜在的恶意威胁，同时Threat Hunting的结果也会反馈DE.DP-5 `Detection processes are continuously improved`。
 
-传统SOC：SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
+依照NIST的IPDRR框架和IR生命周期的理论体系，在[The Foundations of Threat Hunting [17]](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)这本书中，把Threat Hunting做为一种检测的活动或者是手段，用于弥补传统检测中的不足，增加威胁的检出率。
+
+我们再来看Gartner的安全运营模型，在Gartner [Security Operations Primer for 2022 [19]](https://www.gartner.com/en/doc/759058-security-operations-primer-for-2022)这篇文章中，安全运营包含三个因素、四个领域和四个目标的闭环，如下图：
+
+![Security Operations Primer for 2022](image/gartner-secrutiy-operation-cycle.png)
+
+三个因素是指人、流程、技术，这是Gartner一贯强调的，所有活动和目标都是围绕这三个因素开展，以三个因素的各个方面，开展现代化的安全运营中心的建设，内容包括四个领域：治理和运营、安全服务、安全监控/检测/响应技术、威胁和暴露面管理。
+
+在今年Google Cloud Security Summit 2022中提到的
+
+在实际的安全运营中，传统SOC/SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
 consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
 
 ![Daily defenses versus hunt](image/daily-defenses-versus-hunts.png)
@@ -169,3 +179,5 @@ TH 和安全巡检，覆盖面不同，目的不同
 16. [NIST网络安全框架](https://www.nist.gov/cyberframework)
 17. [The Foundations of Threat Hunting](https://www.amazon.com/Foundations-Threat-Hunting-Organize-effective/dp/180324299X)
 18. [NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+19. [Security Operations Primer for 2022 - Gartner](https://www.gartner.com/en/doc/759058-security-operations-primer-for-2022)
+20. [Hype Cycle for Security Operations 2021 - Gartner](https://www.gartner.com/en/doc/security-operations)
