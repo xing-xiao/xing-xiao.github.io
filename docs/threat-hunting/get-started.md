@@ -62,11 +62,14 @@ IPDRR每一个阶段的细分项目内容如下：
 
 ![Security Operations Primer for 2022](image/gartner-secrutiy-operation-cycle.png)
 
-三个因素是指人、流程、技术，这是Gartner一贯强调的，所有活动和目标都是围绕这三个因素开展，以三个因素的各个方面，开展现代化的安全运营中心的建设，内容包括四个领域：治理和运营、安全服务、安全监控/检测/响应技术、威胁和暴露面管理。
+三个因素是Gartner一直强调的人、流程、技术，安全的所有活动和目标都是围绕这三个因素开展，现代化的安全运营中心的建设同样是需要从这三个因素展开。Gartner的安全运营模型的四个领域包括：治理和运营、安全服务、安全监控/检测/响应技术、威胁和暴露面管理。其中，治理和运营主要强调安全团队的建设，安全人员的素质以及安全流程的规范，突出了人在信息安全运营过程中的作用；威胁和暴漏面管理则强调对保护的资产的范围确认，了解组织资产面临的威胁和风险；监控/检测和响应则更加注重安全事件的发现和处置闭环，强调处置的平台、流程和技术的建设；而安全服务的内容则是突出一系列的安全活动，如威胁狩猎、威胁情报、红蓝对抗，在威胁保护、响应之外，仍然需要一系列的安全活动来提高组织安全防护水平，关注于解决信息安全痛苦金字塔[13]顶端的内容。
 
-在今年Google Cloud Security Summit 2022中提到的
+Google在今年的云峰会上分享了优化安全运营的议题，主张通过自动化等各种手段进行安全运营加速(10x SOC概念)，在提升安全运营效率的同时注重安全运营的持续改进的闭环活动。在Google的运营体系中，将日志收集(Event Logging)和分析(Analyst)分成了不同的阶段，Threat Hunting一般作为更高阶的运营活动，在建设的后期开展进行。或者我们也可以理解Google认为开展Threat Hunting是需要在一定的建设基础之上的，日志收集的完备性对Threat Hunting的开展有一定的影响。当然，Threat Hunting的一个作用也是会推进安全运营、日志收集的完善和提高。Google的持续检测和持续响应闭环如下。
 
-在实际的安全运营中，传统SOC/SIEM检测出恶意行为并告警，SOC运营人员由这些告警触发去开展安全调查。而攻击者也在不断提高自己的技巧以规避检测。
+![Google Modernizing Autonomic Security Operations](image/google-security-operation-ci-cd.png)
+
+总结来说，Threat Hunting是安全运营中的一项必须的安全活动，在安全检测(Detection)阶段开展，一般作为安全检测能力的补充，Threat Hunting可以以Threat Intelligence作为输入，它的结果也可以输出给Incident Response从而触发事件响应流程。Threat hunting作为一种闭环的运营活动，执行的过程会对资产暴漏面管理、日志收集全面性、检测引擎和检测规则能力提高均有促进作用。同样，Threat Hunting活动的成熟度很依赖现有检测日志的收集成熟度以及检测规则的优化，处于安全运营高阶阶段，但并不是说只有成熟的安全运营建设完成才能开展。
+
 consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
 
 ![Daily defenses versus hunt](image/daily-defenses-versus-hunts.png)
@@ -181,3 +184,4 @@ TH 和安全巡检，覆盖面不同，目的不同
 18. [NIST.SP.800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 19. [Security Operations Primer for 2022 - Gartner](https://www.gartner.com/en/doc/759058-security-operations-primer-for-2022)
 20. [Hype Cycle for Security Operations 2021 - Gartner](https://www.gartner.com/en/doc/security-operations)
+21. [Modernizing Autonomic Security Operations](https://services.google.com/fh/files/misc/us_pubsec_aso_transformation.pdf)
