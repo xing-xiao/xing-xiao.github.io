@@ -19,7 +19,7 @@
 
 这些定义的前提都建立在威胁检测(Detect)无法完全发现所有的恶意入侵，造成这样的可能原因包括：检测技术存在缺陷、不断出现的新型攻击手法、检测的覆盖面不足等等。而Threat Hunting作为一种主动的周期性活动，可以用于发现威胁检测过程中因为上述原因而未被发现的威胁。在NIST的IPDRR安全框架中，Threat Hunting是用于弥补识别(IDENTIFY)、保护(PROTECT)和检测(DETECT)的不足，这一点我们会在下一小节**Threat Hunting在安全防御框架中的位置**中详细的展开介绍，并系统讲解安全防御框架中Threat Huting与其他安全活动之间的关系。
 
-Active Countermeasures的COO、SANS的讲师Chris Brenton在Youtube上发表了一系列的教程[视频[14]](https://www.youtube.com/watch?v=lt1ld62Fids)来讲述Threat Hunting活动(ps. 视频一开始的妹子Shelby带上粉色猫耳朵耳麦很萌，比他在AC官网的照片要好看的多)。Chris Brenton在2020年的文章[what is threat hunting and why is it so important [7]](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)中简要讲了对Threat Hunting的理解以及重要性，观点主要包括：Threat Hunting是一个active/proactive活动，对象是所在组织的任何相关环境(原文中用词是everything)，内容是发现任何失陷的信号(signs of being compromised),而输出是是否失陷的评估。
+Active Countermeasures的COO、SANS的讲师Chris Brenton在Youtube上发表了一系列的教程[视频[14]](https://www.youtube.com/watch?v=lt1ld62Fids)来讲述Threat Hunting活动。Chris Brenton在2020年的文章[what is threat hunting and why is it so important [7]](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)中简要讲了对Threat Hunting的理解以及重要性，观点主要包括：Threat Hunting是一个active/proactive活动，对象是所在组织的任何相关环境(原文中用词是everything)，内容是发现任何失陷的信号(signs of being compromised),而输出是是否失陷的评估。
 
 在最近的BlackHat USA(2022年8月)会议中，来自IBM X-Force的专家John Dwyer和Neil Wyler分享了议题[Open Threat Hunting Framework (OTHF)[8]](https://www.blackhat.com/us-22/briefings/schedule/#the-open-threat-hunting-framework-enabling-organizations-to-build-operationalize-and-scale-threat-hunting-26702)，体系化的阐述了Threat Hunting活动框架。这篇文章在2.3小节中则是建议由开展Threat Hunting活动的组织在内部自己定义Threat Hunting以及相关活动，而定义的内容应该包括：1.hunting不针对已经能检出的威胁；2.是应该专项的、周期性开展的活动；3.活动是建立在“假设”的基础上。
 
@@ -68,15 +68,37 @@ Google在今年的云峰会上分享了优化安全运营的议题，主张通�
 
 ![Google Modernizing Autonomic Security Operations](image/google-security-operation-ci-cd.png)
 
-总结来说，Threat Hunting是安全运营中的一项必须的安全活动，在安全检测(Detection)阶段开展，一般作为安全检测能力的补充，Threat Hunting可以以Threat Intelligence作为输入，它的结果也可以输出给Incident Response从而触发事件响应流程。Threat hunting作为一种闭环的运营活动，执行的过程会对资产暴漏面管理、日志收集全面性、检测引擎和检测规则能力提高均有促进作用。同样，Threat Hunting活动的成熟度很依赖现有检测日志的收集成熟度以及检测规则的优化，处于安全运营高阶阶段，但并不是说只有成熟的安全运营建设完成才能开展。
+总结来说，Threat Hunting是：
 
-consider threat hunting to be an essential step in detecting adversaries and forms part of a complete security program. [What Is Threat Hunting and Why Is It so Important? – Chris Brenton](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)
+1. 安全运营中的一项必须的**安全活动**
+2. 以满足安全检测(Detection)阶段的目标开展，一般作为安全检测能力的补充，但是活动会贯穿整个运营生命周期
+3. 可以以Threat Intelligence作为输入，它的结果也可以输出给Incident Response从而触发事件响应流程
+4. 作为一种闭环的运营活动，执行的过程会对资产暴漏面管理(ASM)、日志收集、检测引擎和检测规则建设均有促进作用
+5. 作为一种闭环的运营活动，对团队的建设和人员的技能水平有很大的促进作用
+6. 成熟度很依赖现有检测日志、SIEM之类运营平台的完成度以及检测规则的优化，但并不是说只有成熟的安全运营建设完成才能开展
+7. 处于安全运营高阶阶段，解决痛苦金字塔上层的问题
+
+### Threat Hunting为什么重要而且必须
+
+Chris Brenton在文章[what is threat hunting and why is it so important [7]](https://www.activecountermeasures.com/what-is-threat-hunting-and-why-is-it-so-important-video-blog/)中描述了威胁狩猎的重要性，他认为：Threat Hunting是连接安全防护和安全响应的活动、一般发现失陷是事件的6个月后、多数的失陷事件是第三方安全厂商发现的、现有的日志分析或SIEM平台只能检出2.5%的事件等等。
+
+不得不说Chris Brenton在这里的数据有些过于夸张，我也不认为国内已经有专职开展安全运营活动的公司能容忍安全事件的检出水平低到这个级别。但现实中我们面临的情况也并不那么乐观，Chris Brenton的数据虽然夸张，但是观点并不错误。
+
+首先，我们需要明确一个核心观点，就是被动的检测无法发现所有的威胁。在这里，被动的检测是指部署在各个区域的传感器、集中的SIEM系统以及事件响应IR活动，这也是目前最常见的`检测->研判->响应`流程。无法完全发现的原因有很多，总结起来是两个方面：1.信息安全是一门对抗和动态演化的学科，它不是考试做所有题都有答案答对就能拿到满分，它也没有一成不变的铁律让安全从业人员按图索骥的开展建设。我们看到这些年CS在不断更新隐蔽特征，新的0Day总是在不合时宜的时间出现，APT组织的不断演化，都意味着防御手段和方法也要不断进化。2. 安全防御仍然是木桶效应，企业的防御水平取决于做的最差的那项，攻击者天然的占据优势。如是否所有的资产都能梳理清楚并有足够的人员和预算来覆盖安全防护，边界的防御和纵深的防御同样重要，核心资产和边缘资产不一致的防护级别可能导致同样严重的结果。这些都注定了信息安全防御很容易达到一个及格线，但是想获得优秀甚至向一百分迈进，都需要花费巨量的资源。
+
+如检测的覆盖面有缺失；没有实现纵深防御，攻击者绕过边界以后横向移动没有发现手段；攻击者简单的IOC可以
+
+1. SIEM解决不了所有的威胁发现
+2. SIEM需要活动来驱动检测能力提高、规则的完备、接入数据的完备、防御框架的完备
+3. 外部攻击手段的变化、新的0-Day漏洞的披露、不断变种的CS，都需要TI团队来跟踪以及及时预警，但是验证内部是否存在着类攻击、现有手段是否能够防御、是否有资产已经失陷，都需要TH团队来做这样的事情。
+
+防御评价
+攻击组织识别、攻击手段识别
+
+
 
 ![Daily defenses versus hunt](image/daily-defenses-versus-hunts.png)
-
-
-
-### TH为什么重要或者必须的
+1. 在发现攻击时候，攻击者已经在网络中存在了6个月， 2. 安全环境的变化，现在情报、数据的增多，需要一个响应的团队(TI)来跟踪威胁，而TH来验证威胁。3. 实际的检测能力不足，现有的日志职能分析出2.5%的威胁
 
 team level benifits
 • Turns unknown risks into known risks and allows them to be managed effectively
