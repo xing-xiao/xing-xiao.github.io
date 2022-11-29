@@ -84,7 +84,9 @@ Chris Brenton在文章[what is threat hunting and why is it so important [7]](ht
 
 不得不说Chris Brenton在这里的数据有些过于夸张，我也不认为国内已经有专职开展安全运营活动的公司能容忍安全事件的检出水平低到这个级别。但现实中我们面临的情况也并不那么乐观，Chris Brenton的数据虽然夸张，但是观点并不错误。
 
-我们需要明确一个核心观点，就是被动的检测无法发现所有的威胁。在这里，被动的检测是指部署在各个区域的传感器、集中的SIEM系统以及事件响应IR活动，这也是目前最常见的`检测->研判->响应`流程。无法完全发现的原因有很多，总结起来是两个方面：1.信息安全是一门对抗的学科，它不是考试做所有题都有答案答对就能拿到满分，它也没有一成不变的铁律让安全从业人员按图索骥的开展建设。我们看到这些年CS在不断更新隐蔽特征，新的0Day总是在不合时宜的时间出现，APT组织的不断演化，都意味着防御手段和方法也要不断进化。2. 安全防御仍然是木桶效应，企业的防御水平取决于做的最差的那项，攻击者天然的占据优势。如是否所有的资产都能梳理清楚并有足够的人员和预算来覆盖安全防护，边界的防御和纵深的防御同样重要，核心资产和边缘资产不一致的防护级别可能导致同样严重的结果。这些都注定了信息安全防御很容易达到一个及格线，但是想获得优秀甚至向九十九分迈进，都需要花费巨量的资源。
+我们需要明确一个核心观点，就是被动的检测无法发现所有的威胁。在这里，被动的检测是指部署在各个区域的传感器、集中的SIEM系统以及事件响应IR活动，这也是目前最常见的`检测->研判->响应`流程。无法完全发现的原因有很多，总结起来是两个方面：1.信息安全是一门对抗的学科，它不是考试做所有题都有答案答对就能拿到满分，它也没有一成不变的铁律让安全从业人员按图索骥的开展建设。我们看到这些年CS在不断更新隐蔽特征，新的0Day总是在不合时宜的时间出现，APT组织的不断演化，都意味着防御手段和方法也要不断进化。2. 安全防御仍然是木桶效应，企业的防御水平取决于做的最差的那项，攻击者天然的占据优势。如是否所有的资产都能梳理清楚并有足够的人员和预算来覆盖安全防护，边界的防御和纵深的防御同样重要，核心资产和边缘资产不一致的防护级别可能导致同样严重的结果。这些都注定了信息安全防御很容易达到一个及格线，但是想获得优秀甚至向九十分迈进，都需要花费巨量的资源。
+
+另外，在信息安全
 
 因为信息安全是一门对抗的学科，在安全运营中，威胁情报(Threat Intelligence)职能负责对外部的攻击态势进行跟踪以及及时预警。在这里我们多讲一下威胁情报和红队之间的职能区别，从目标上来说，红队是在扮演攻击者角色，发现现有防御体系中的漏洞，
 
@@ -184,6 +186,18 @@ TH 和安全巡检，覆盖面不同，目的不同
 
 - https://github.com/clong/DetectionLab
 
+威胁狩猎101文档
+
+https://www.secrss.com/articles/17910
+https://www.anquanke.com/post/id/209909
+
+
+https://www.sans.org/blog/ics-threat-hunting-they-are-shootin-at-the-lights-part-1/
+https://www.sans.org/blog/ics-threat-hunting-they-are-shootin-at-the-lights-part-2/
+
+ETDA
+https://apt.etda.or.th/cgi-bin/aptsearch.cgi
+
 ## Reference
 
 1. [SANS 2022 Threat Hunting Survey - Hunting for a Standard Methodology for Threat Hunting Teams](https://www.youtube.com/watch?v=n29whvCuwhc)
@@ -207,3 +221,4 @@ TH 和安全巡检，覆盖面不同，目的不同
 19. [Security Operations Primer for 2022 - Gartner](https://www.gartner.com/en/doc/759058-security-operations-primer-for-2022)
 20. [Hype Cycle for Security Operations 2021 - Gartner](https://www.gartner.com/en/doc/security-operations)
 21. [Modernizing Autonomic Security Operations](https://services.google.com/fh/files/misc/us_pubsec_aso_transformation.pdf)
+22. [A Framework for Cyber Threat Hunting White Paper - Sqrrl](https://www.threathunting.net/files/framework-for-threat-hunting-whitepaper.pdf)
